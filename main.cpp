@@ -19,6 +19,7 @@
 
 int main (int argc, char** argv)
 {
+	std::vector<std::string> input_vector;
 	char mystring[100]; 
 	std::cout << "Enter a string and press return: " << std::endl; //user input
 	std::cin.getline(mystring,100);
@@ -31,10 +32,50 @@ int main (int argc, char** argv)
 
 	while (ptr != NULL)  
     {  
-        std::cout << ptr  << std::endl; // print the string token  
+		input_vector.push_back(ptr);
 		
         ptr = strtok (NULL, " ");  
     }  
+
+	for (;;) { // loop forever
+
+		std::vector<std::string> input_vector;
+
+		char mystring[100]; // store the input inside this char
+
+		std::cout << "r: Read and process tag file " << std::endl;
+		std::cout << "p: Print all tags " << std::endl;
+		std::cout << "d: dump/write tags and data to a file " << std::endl;
+		std::cout << "l: list/print tag data for given tag " << std::endl;
+		std::cout << "q: Quit " << std::endl; 
+		std::cout << "Enter an option (r,p,d,l) or q to quit, and press return..." << std::endl; //user input
+		std::cin.getline(mystring,100);
+	
+		char *ptr; // declare a ptr pointer  
+		ptr = strtok(mystring, " "); // use strtok() function to separate string using comma (,) delimiter.  
+
+		while (ptr != NULL)  
+		{  
+			input_vector.push_back(ptr);
+			
+			ptr = strtok (NULL, " ");  
+		}  
+		if (input_vector.at(0) == "r" ) {
+			ORRKAU001::readAndParseFile("");
+		}
+		if (input_vector.at(0) == "p" ) {
+			ORRKAU001::printAllTags();
+		}
+		if (input_vector.at(0) == "d" ) 
+		{
+			ORRKAU001::dumpTagsToFile();
+		}
+		if (input_vector.at(0) == "l" ) 
+		{
+			ORRKAU001::listTagData("");
+		}
+		if (input_vector.at(0) == "q" ) break;
+	}
      
  
 	
