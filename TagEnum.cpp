@@ -1,8 +1,11 @@
-
 #include "TagEnum.h"
-
-
 	
+
+//struct ORRKAU001::TagStruct tagstruct; 
+//vector for the Tagstruct stuff
+//std::vector<std::string> TAGS;
+
+//a method to extract the file contents and return a vector with each line
 std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
 {
 	std::cout << filename << std::endl; //only a print to screen test if method works, no functionality
@@ -16,7 +19,7 @@ std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
 	//adding the items in the file into the vector
 	std::string line; 
 	while(std::getline(in, line))
-	{
+{
 		test_vector.push_back(line);
 	}
 
@@ -25,6 +28,13 @@ std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
 
 	return test_vector;
 
-}	
+}
 
+//method to create a vector with TagStuct type objects
+/*void ORRKAU001::createTagVector(std::string tagname)
+{
+	std::cout << "This is the createTagvector method print out" << std::endl; // tester
 
+}*/
+
+	
