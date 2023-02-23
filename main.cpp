@@ -32,7 +32,6 @@ int main (int argc, char** argv)
 		ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
 	}
 
-	ORRKAU001::printOutVector();
 	bool tf = ORRKAU001::checkIfTagExists("TXT");
 	std::cout << tf << std::endl;
 	return 0;
