@@ -46,21 +46,32 @@ int main (int argc, char** argv)
 			ptr = strtok (NULL, " ");  
 		}  
 
+		//if the user selects the 'r' input along with the file
+		//extract the contents of the file and add it to the vector 
+		// create a TagStruct vector
 		if (input_vector.at(0) == "r" ) {
 			contents = ORRKAU001::readAndParseFile(input_vector.at(1));
 			//contents = ORRKAU001::extractFileContents("simple.txt"); //read file from user input
 			std::cout << "input : " << input_vector.at(1) << std::endl;
 			for (auto & element : contents)
 			{
-				ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
+				ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file to create a TagStruct vector
 			}
 
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
 		}
+
 		if (input_vector.at(0) == "p" ) {
 			ORRKAU001::printAllTags();
+
+			
+
+			
+			//when the method is complete let the user choose to continue or not. 
+			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
+			std::cin.getline(mystring,100);
 		}
 		if (input_vector.at(0) == "d" ) 
 		{
