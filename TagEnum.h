@@ -20,7 +20,7 @@
 
 namespace ORRKAU001
 {
-	void extractFileContents(std::string filename); 
+	std::vector<std::string> extractFileContents(std::string filename); 
 }
 
 

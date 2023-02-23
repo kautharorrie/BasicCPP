@@ -25,29 +25,13 @@ int main (int argc, char** argv)
 	std::vector<std::string> test_vector;
 	std::string filename = "simple.txt"; //assign the file to a string
 	
-	ORRKAU001::extractFileContents(filename);
-	std::ifstream in(filename); //use the file for imports
-	
-	if(!in)
-	{
-		std::cout << "Couldn't open file " << filename << std::endl;
-		return 1;
-	}
-	
-	//adding the lines of the file into the vector
-	std::string line;
-	while(std::getline(in, line))
-	{
-		test_vector.push_back(line);
-	}
-	
-	std::cout << "Done." << std::endl;
-	in.close();
+	// use the method "extractFileContents" from the TagEnum.cpp function
+	vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
 	
 	int position1;
 	int position2;
 	//looping through the vector to get each line and printing it out
-	for (auto & element : test_vector)
+	for (auto & element : contents)
 	{
 		position1 = element.find(">"); 
 

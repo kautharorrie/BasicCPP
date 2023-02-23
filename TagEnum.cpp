@@ -3,7 +3,7 @@
 
 
 	
-void ORRKAU001::extractFileContents(std::string filename)
+std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
 {
 	std::cout << filename << std::endl; //only a print to screen test if method works, no functionality
 	
@@ -22,6 +22,8 @@ void ORRKAU001::extractFileContents(std::string filename)
 
 	std::cout << "Done." << std::endl;
 	in.close();
+
+	return test_vector;
 
 }	
 
