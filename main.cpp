@@ -19,23 +19,8 @@
 
 int main (int argc, char** argv)
 {
-	std::vector<std::string> input_vector;
-	char mystring[100]; 
-	std::cout << "Enter a string and press return: " << std::endl; //user input
-	std::cin.getline(mystring,100);
-	std::cout << "The string is :" << mystring << std::endl ;
 
-
-	char *ptr; // declare a ptr pointer  
-    ptr = strtok(mystring, " "); // use strtok() function to separate string using comma (,) delimiter.  
-    std::cout << " \n Split string using strtok() function: " << std::endl;
-
-	while (ptr != NULL)  
-    {  
-		input_vector.push_back(ptr);
-		
-        ptr = strtok (NULL, " ");  
-    }  
+	std::vector<std::string> contents; //vector to store the contents of the file; 
 
 	for (;;) { // loop forever
 
@@ -56,12 +41,23 @@ int main (int argc, char** argv)
 
 		while (ptr != NULL)  
 		{  
-			input_vector.push_back(ptr);
+			input_vector.push_back(ptr); // seperate user input and add to a vector
 			
 			ptr = strtok (NULL, " ");  
 		}  
+
 		if (input_vector.at(0) == "r" ) {
-			ORRKAU001::readAndParseFile("");
+			contents = ORRKAU001::readAndParseFile(input_vector.at(1));
+			//contents = ORRKAU001::extractFileContents("simple.txt"); //read file from user input
+			std::cout << "input : " << input_vector.at(1) << std::endl;
+			for (auto & element : contents)
+			{
+				ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
+			}
+
+			//when the method is complete let the user choose to continue or not. 
+			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
+			std::cin.getline(mystring,100);
 		}
 		if (input_vector.at(0) == "p" ) {
 			ORRKAU001::printAllTags();
@@ -82,17 +78,17 @@ int main (int argc, char** argv)
 	
 	
 	//testing the i/o file functionality
-	std::vector<std::string> test_vector;
-	std::string filename = "simple.txt"; //assign the file to a string
+	//std::vector<std::string> test_vector;
+	//std::string filename = "simple.txt"; //assign the file to a string
 	
 	// use the method "extractFileContents" from the TagEnum.cpp function
-	std::vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
+	//std::vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
 	
 	//looping through the vector (every line of the file) to add to the TagStruct vector
-	for (auto & element : contents)
-	{
-		ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
-	}
+	// for (auto & element : contents)
+	// {
+	// 	ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
+	// }
 
 	bool tf = ORRKAU001::checkIfTagExists("TXT");
 	std::cout << tf << std::endl;
