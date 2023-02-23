@@ -31,7 +31,7 @@ namespace ORRKAU001
 	void readAndParseFile(std::string);
 	void printAllTags();
 	void dumpTagsToFile();
-	void listTagData();
+	void listTagData(std::string tag);
 
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 

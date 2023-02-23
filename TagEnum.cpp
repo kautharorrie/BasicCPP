@@ -89,4 +89,21 @@ void ORRKAU001::printOutVector()
 
 }
 
+void readAndParseFile(std::string)
+{
+	std::cout << "Read method." << std::endl;
+}
+void printAllTags()
+{
+	std::cout << "Print method." << std::endl;
+}
+void dumpTagsToFile()
+{
+	std::cout << "Dump method." << std::endl;
+}
+void listTagData(std::string tag)
+{
+	std::cout << "List method." << std::endl;
+}
+
 	
