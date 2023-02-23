@@ -92,9 +92,8 @@ void ORRKAU001::printOutVector()
 
 std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 {
-	std::cout << "Read method." << std::endl;
-	std::cout << filename << std::endl; //only a print to screen test if method works, no functionality
-	
+	std::cout << "The file is being read..." << std::endl;
+
 	std::vector<std::string> test_vector; //vector to store each line of the file
 	
 	std::ifstream in(filename); // use the file for imports
@@ -108,11 +107,21 @@ std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 		test_vector.push_back(line);
 	}
 	in.close();
+	std::cout << "The file was successfully read." << std::endl;
+	
 	return test_vector;
 }
+
 void ORRKAU001::printAllTags()
 {
-	std::cout << "Print method." << std::endl;
+	std::cout << "All the tags in file: " << std::endl;
+	int i = 1; 
+	for (auto & element : TAGS)
+	{
+		std::cout << i << ". " <<  element.tagName << std::endl;
+		i++;
+		
+	}
 }
 void ORRKAU001::dumpTagsToFile()
 {
