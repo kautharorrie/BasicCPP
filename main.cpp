@@ -20,6 +20,7 @@ int main (int argc, char** argv)
 {
 	using namespace std; 
 	cout << "Hello World" << endl;
+	ORRKAU001::createTagVector("Hello");
 	
 	//testing the i/o file functionality
 	std::vector<std::string> test_vector;
@@ -33,15 +34,16 @@ int main (int argc, char** argv)
 	//looping through the vector to get each line and printing it out
 	for (auto & element : contents)
 	{
-		position1 = element.find(">"); 
+		ORRKAU001::createTagVector(element);
+		// position1 = element.find(">"); 
 
-		std::string sub = element.substr(position1+1);
+		// std::string sub = element.substr(position1+1);
 		
-		position2 = sub.find("</");
-		std::string sub2 = sub.substr(position2+1);
-		std::cout << position1 << std::endl;
-		std::cout << sub2 << std::endl;
-		std::cout << sub << std::endl;
+		// position2 = sub.find("</");
+		// std::string sub2 = sub.substr(position2+1);
+		// std::cout << position1 << std::endl;
+		// std::cout << sub2 << std::endl;
+		// std::cout << sub << std::endl;
 	}
 	
 

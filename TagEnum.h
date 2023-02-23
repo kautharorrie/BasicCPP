@@ -22,7 +22,7 @@ namespace ORRKAU001
 {
 	std::vector<std::string> extractFileContents(std::string filename); // method for extracting file contents
 	
-	void createTagVector(std::string tag); //method to add tag to struct 	
+	void createTagVector(std::string s); //method to add tag to struct 	
 	
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 
