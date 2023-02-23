@@ -15,10 +15,31 @@
 #include "string.h"
 #include <vector>
 #include "TagEnum.h"
+#include <cstring>  
 
 int main (int argc, char** argv)
 {
-	using namespace std; 
+	char mystring[100]; 
+	std::cout << "Enter a string and press return: " << std::endl; //user input
+	std::cin.getline(mystring,100);
+	std::cout << "The string is :" << mystring << std::endl ;
+
+
+	char *ptr; // declare a ptr pointer  
+    ptr = strtok(mystring, " "); // use strtok() function to separate string using comma (,) delimiter.  
+    std::cout << " \n Split string using strtok() function: " << std::endl;
+
+	while (ptr != NULL)  
+    {  
+        std::cout << ptr  << std::endl; // print the string token  
+		
+        ptr = strtok (NULL, " ");  
+    }  
+     
+ 
+	
+	
+	
 	//testing the i/o file functionality
 	std::vector<std::string> test_vector;
 	std::string filename = "simple.txt"; //assign the file to a string
