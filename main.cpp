@@ -19,48 +19,21 @@
 int main (int argc, char** argv)
 {
 	using namespace std; 
-	cout << "Hello World" << endl;
-	ORRKAU001::createTagVector("Hello");
-	
 	//testing the i/o file functionality
 	std::vector<std::string> test_vector;
 	std::string filename = "simple.txt"; //assign the file to a string
 	
 	// use the method "extractFileContents" from the TagEnum.cpp function
-	vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
+	std::vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
 	
-	int position1;
-	int position2;
-	//looping through the vector to get each line and printing it out
+	//looping through the vector (every line of the file) to add to the TagStruct vector
 	for (auto & element : contents)
 	{
-		ORRKAU001::createTagVector(element);
-		// position1 = element.find(">"); 
-
-		// std::string sub = element.substr(position1+1);
-		
-		// position2 = sub.find("</");
-		// std::string sub2 = sub.substr(position2+1);
-		// std::cout << position1 << std::endl;
-		// std::cout << sub2 << std::endl;
-		// std::cout << sub << std::endl;
+		ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
 	}
-	
 
-
-
-	//attempt to split the array
-	char c;
-	int i = 0;
-	char str[] = "Hello World\n";
-	
-	while(str[i])
-	{
-		c = str[i];
-		if (isblank(c)) 
-			c='\n';
-		putchar(c);
-		i++;
-	}
+	ORRKAU001::printOutVector();
+	bool tf = ORRKAU001::checkIfTagExists("TXT");
+	std::cout << tf << std::endl;
 	return 0;
 }

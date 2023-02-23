@@ -24,6 +24,11 @@ namespace ORRKAU001
 	
 	void createTagVector(std::string s); //method to add tag to struct 	
 	
+	void printOutVector(); //tester method to check if vector is populating
+
+	bool checkIfTagExists(std::string tagname); // checks if the tag exists within the vector of Tagstructs
+
+	
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 
 	// the text associated to the tag in thr file
