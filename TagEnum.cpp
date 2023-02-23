@@ -90,6 +90,8 @@ void ORRKAU001::printOutVector()
 
 }
 
+// handles the 'r' input from the user
+// reads in a file and saves a tagstruct vector
 std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 {
 	std::cout << "The file is being read..." << std::endl;
@@ -112,7 +114,8 @@ std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 	return test_vector;
 }
 
-
+// handles the 'p' input from the user
+//prints all the tags in the file
 void ORRKAU001::printAllTags()
 {
 	std::cout << "All the tags in file: " << std::endl;
@@ -124,10 +127,16 @@ void ORRKAU001::printAllTags()
 		
 	}
 }
+
+// handles the 'd' input from the user
+// writes/dumps all tag data to a  file
 void ORRKAU001::dumpTagsToFile()
 {
 	std::cout << "Dump method." << std::endl;
 }
+
+// handles the 'l' input from the user
+// lists the data of a given tag
 void ORRKAU001::listTagData(std::string tag)
 {
 	std::cout << "The data for the tag '" << tag << "' : " << std::endl;

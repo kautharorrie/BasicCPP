@@ -63,21 +63,29 @@ int main (int argc, char** argv)
 			std::cin.getline(mystring,100);
 		}
 
+		//  if the user enters 'p'
 		if (input_vector.at(0) == "p" ) {
-			ORRKAU001::printAllTags();
+			ORRKAU001::printAllTags(); // call the method within TagEnum.cpp
 
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
 		}
+
+		//  if the user enters 'd'
 		if (input_vector.at(0) == "d" ) 
 		{
-			ORRKAU001::dumpTagsToFile();
+			ORRKAU001::dumpTagsToFile(); // call the method within TagEnum.cpp
+
+			//when the method is complete let the user choose to continue or not. 
+			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
+			std::cin.getline(mystring,100);
 		}
-		
+
+		//  if the user enters 'l'
 		if (input_vector.at(0) == "l" ) 
 		{
-			ORRKAU001::listTagData(input_vector.at(1));
+			ORRKAU001::listTagData(input_vector.at(1)); // call the method within TagEnum.cpp
 
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
