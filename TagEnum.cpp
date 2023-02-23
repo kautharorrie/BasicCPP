@@ -112,6 +112,7 @@ std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 	return test_vector;
 }
 
+
 void ORRKAU001::printAllTags()
 {
 	std::cout << "All the tags in file: " << std::endl;
@@ -129,7 +130,16 @@ void ORRKAU001::dumpTagsToFile()
 }
 void ORRKAU001::listTagData(std::string tag)
 {
-	std::cout << "List method." << std::endl;
+	std::cout << "The data for the tag '" << tag << "' : " << std::endl;
+
+	for (auto & element : TAGS) // loop through the vector to check
+	{
+		if (element.tagName == tag) //if the current tag is equal to the tag in question
+		{
+			std::cout << "Number of pairs for the tag '" << tag << "' is: " << element.numberOfPairs << std::endl; //increment the number of tags
+			std::cout << "The text for the tag '" << tag << "' is:  " << element.text << std::endl; 
+		}	
+	}
 }
 
 	

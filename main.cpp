@@ -66,9 +66,6 @@ int main (int argc, char** argv)
 		if (input_vector.at(0) == "p" ) {
 			ORRKAU001::printAllTags();
 
-			
-
-
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
@@ -77,9 +74,14 @@ int main (int argc, char** argv)
 		{
 			ORRKAU001::dumpTagsToFile();
 		}
+		
 		if (input_vector.at(0) == "l" ) 
 		{
-			ORRKAU001::listTagData("");
+			ORRKAU001::listTagData(input_vector.at(1));
+
+			//when the method is complete let the user choose to continue or not. 
+			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
+			std::cin.getline(mystring,100);			
 		}
 		if (input_vector.at(0) == "q" ) break;
 	}
