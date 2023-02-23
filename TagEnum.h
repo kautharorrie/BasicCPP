@@ -27,8 +27,12 @@ namespace ORRKAU001
 	void printOutVector(); //tester method to check if vector is populating
 
 	bool checkIfTagExists(std::string tagname); // checks if the tag exists within the vector of Tagstructs
-
 	
+	void readAndParseFile(std::string);
+	void printAllTags();
+	void dumpTagsToFile();
+	void listTagData();
+
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 
 	// the text associated to the tag in thr file
