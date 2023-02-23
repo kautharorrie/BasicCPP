@@ -132,7 +132,16 @@ void ORRKAU001::printAllTags()
 // writes/dumps all tag data to a  file
 void ORRKAU001::dumpTagsToFile()
 {
-	std::cout << "Dump method." << std::endl;
+	std::cout << "Writing to a file" << std::endl;
+	std::ofstream myfile;
+  	myfile.open ("tag.txt");
+	for (auto & element : TAGS)
+	{
+		myfile << "'" + element.tagName + "' ,"; 
+		myfile << element.numberOfPairs; 
+		myfile << ", '" + element.text + "' \n";
+	}
+  	myfile.close();
 }
 
 // handles the 'l' input from the user

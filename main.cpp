@@ -94,24 +94,5 @@ int main (int argc, char** argv)
 		if (input_vector.at(0) == "q" ) break;
 	}
      
- 
-	
-	
-	
-	//testing the i/o file functionality
-	//std::vector<std::string> test_vector;
-	//std::string filename = "simple.txt"; //assign the file to a string
-	
-	// use the method "extractFileContents" from the TagEnum.cpp function
-	//std::vector<std::string> contents = ORRKAU001::extractFileContents(filename); //extract file contents
-	
-	//looping through the vector (every line of the file) to add to the TagStruct vector
-	// for (auto & element : contents)
-	// {
-	// 	ORRKAU001::createTagVector(element); //using the method from TagEnum.cpp file
-	// }
-
-	bool tf = ORRKAU001::checkIfTagExists("TXT");
-	std::cout << tf << std::endl;
 	return 0;
 }
