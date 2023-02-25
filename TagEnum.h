@@ -17,6 +17,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <cstdlib>
 
 namespace ORRKAU001
 {
@@ -32,6 +33,7 @@ namespace ORRKAU001
 	void printAllTags();
 	void dumpTagsToFile();
 	void listTagData(std::string tag);
+	void clear(void); //clears the screen
 
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 

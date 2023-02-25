@@ -160,4 +160,9 @@ void ORRKAU001::listTagData(std::string tag)
 	}
 }
 
+//clears the screen/terminal input
+void ORRKAU001::clear(void) 
+{ 
+	system("clear"); 
+} 
 	

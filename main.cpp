@@ -61,6 +61,7 @@ int main (int argc, char** argv)
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
+			ORRKAU001::clear();
 		}
 
 		//  if the user enters 'p'
@@ -70,6 +71,7 @@ int main (int argc, char** argv)
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
+			ORRKAU001::clear();
 		}
 
 		//  if the user enters 'd'
@@ -80,6 +82,7 @@ int main (int argc, char** argv)
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
 			std::cin.getline(mystring,100);
+			ORRKAU001::clear();
 		}
 
 		//  if the user enters 'l'
@@ -89,10 +92,20 @@ int main (int argc, char** argv)
 
 			//when the method is complete let the user choose to continue or not. 
 			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
-			std::cin.getline(mystring,100);			
+			std::cin.getline(mystring,100);
+			ORRKAU001::clear();			
 		}
 		if (input_vector.at(0) == "q" ) break;
 	}
+
+	std::string X = "buenos dias mi amigo", value;
+	std::istringstream iss(X);
+	while (!iss.eof())
+	{
+	iss >> value;
+	std::cout << "value =" << value << std::endl;
+}
+
      
 	return 0;
 }
