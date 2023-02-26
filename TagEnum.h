@@ -23,13 +23,13 @@ namespace ORRKAU001
 {
 	std::vector<std::string> extractFileContents(std::string filename); // method for extracting file contents
 	
-	void createTagVector(std::string s); //method to add tag to struct 	
+	void createTagVector(std::string ss); //method to add tag to struct 	
 	
 	void printOutVector(); //tester method to check if vector is populating
 
 	bool checkIfTagExists(std::string tagname); // checks if the tag exists within the vector of Tagstructs
 	
-	std::vector<std::string> readAndParseFile(std::string);
+	std::string readAndParseFile(std::string);
 	void printAllTags();
 	void dumpTagsToFile();
 	void listTagData(std::string tag);
