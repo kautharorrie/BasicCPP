@@ -83,7 +83,17 @@ int main (int argc, char** argv)
 			std::cin.getline(mystring,100);
 			ORRKAU001::clear();			
 		}
-		if (input_vector.at(0) == "q" ) break;
+		if (input_vector.at(0) == "q" ) 
+		{
+			break;
+		}
+		else 
+		{
+			std::cout << "Incorrect input please try again." << std::endl;
+			std::cout << "Press enter to [RETURN] or continue..." << std::endl;
+			std::cin.getline(mystring,100);
+			ORRKAU001::clear();
+		}
 	}
 		 
 	return 0;
