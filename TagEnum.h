@@ -34,6 +34,7 @@ namespace ORRKAU001
 	void dumpTagsToFile();
 	void listTagData(std::string tag);
 	void clear(void); //clears the screen
+	void tester(std::string s);
 
 	//TagStruct struct
 	// includes the tagName, number of pairs that consist of the tag within file, 

@@ -33,7 +33,6 @@ std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
 //method to create a vector with TagStuct type objects
 void ORRKAU001::createTagVector(std::string s)
 {
-	std::cout << s << std::endl; // tester
 	int firstPos = s.find(">"); // get the index of the Tag
 	int secondPos = s.find("</"); // get the index of where the tag ends
 
@@ -105,7 +104,7 @@ std::vector<std::string> ORRKAU001::readAndParseFile(std::string filename)
 	//adding the items in the file into the vector
 	std::string line; 
 	while(std::getline(in, line))
-{
+	{
 		test_vector.push_back(line);
 	}
 	in.close();
@@ -132,7 +131,7 @@ void ORRKAU001::printAllTags()
 // writes/dumps all tag data to a  file
 void ORRKAU001::dumpTagsToFile()
 {
-	std::cout << "Writing to a file" << std::endl;
+	std::cout << "Writing to tag.txt." << std::endl;
 	std::ofstream myfile;
   	myfile.open ("tag.txt");
 	for (auto & element : TAGS)
@@ -142,6 +141,8 @@ void ORRKAU001::dumpTagsToFile()
 		myfile << ", '" + element.text + "' \n";
 	}
   	myfile.close();
+	std::cout << "Done writing to tag.txt file." << std::endl;
+
 }
 
 // handles the 'l' input from the user
@@ -165,4 +166,66 @@ void ORRKAU001::clear(void)
 { 
 	system("clear"); 
 } 
+
+//method to create a vector with TagStuct type objects
+void ORRKAU001::tester(std::string s)
+{
+	while (s.length() != 0){
+		int firstPos = s.find(">"); // get the index of the Tag
+		int secondPos = s.find("<"); // get the index of where the tag ends
+
+		std::string tag = s.substr(0, firstPos); // split string to find the TAG
+		std::string tag2 = s.substr(secondPos+2, tag.length()); //split string using the indexes to find the text
+		std::string text = s.substr(firstPos+1, secondPos-firstPos-1); //split string using the indexes to find the text
+		
+		if (tag == tag2)
+		{
+			std::string restOfText = s.substr(secondPos+tag.length()+4, s.length()-3 );
+			std::cout << "Matched! " << std::endl;
+			s = restOfText;
+			std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
+
+			// add the TAGstruct 
+			//if the tag exists, increment the tag and add the text
+			if (ORRKAU001::checkIfTagExists(tag))
+			{
+				for (auto & element : TAGS) // loop through the vector to check
+			{
+				if (element.tagName == tag) //if the current tag is equal to the tag in question
+				{
+					element.numberOfPairs++; //increment the number of tags
+					element.text += ":" + text; // concatenate the text 
+				}
+			}
+			}
+			else
+			{
+				tagstruct.tagName = tag;
+				tagstruct.numberOfPairs = 1;
+				tagstruct.text = text;
+				TAGS.push_back(tagstruct);
+			}
+			
+
+			// check if it already exists
+		}
+		else if (s.length() <= tag.length()+4)
+		{
+			break;
+		}
+		else
+		{
+			std::string restOfText = s.substr(secondPos+1, s.length()-secondPos-1 );
+			std::cout << "No match:    "<< restOfText << std::endl;
+			s = restOfText;
+			std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
+			 
+
+			// break;
+
+
+
+		}
+	}
+}
 	
