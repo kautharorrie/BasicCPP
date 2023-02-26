@@ -1,34 +1,10 @@
 #include "TagEnum.h"
 	
-struct ORRKAU001::TagStruct tagstruct; //tagstruct variable to store tag details
-//vector for the Tagstruct stuff
+struct ORRKAU001::TagStruct tagstruct; //tagstruct variable to store tag data
+
+//vector for the Tagstruct type objects for each tag
+//stores instances/data of the TagStuct type objects
 std::vector<ORRKAU001::TagStruct> TAGS;
-
-//a method to extract the file contents and return a vector with each line
-std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
-{
-	std::cout << filename << std::endl; //only a print to screen test if method works, no functionality
-	
-	std::vector<std::string> test_vector; //vector to store each line of the file
-	
-	std::ifstream in(filename); // use the file for imports
-	
-	//if file does not exist do not open the file
-	if(!in){std::cout << "Couldn't open file" << filename << std::endl; }
-	
-	//adding the items in the file into the vector
-	std::string line; 
-	while(std::getline(in, line))
-    {
-		test_vector.push_back(line);
-	}
-
-	std::cout << "Done." << std::endl;
-	in.close();
-
-	return test_vector;
-
-}
 
 //method to create a vector with TagStuct type objects
 void ORRKAU001::createTagVector(std::string ss)
@@ -42,13 +18,12 @@ void ORRKAU001::createTagVector(std::string ss)
 		std::string tag2 = s.substr(secondPos+2, tag.length()); //split string using the indexes to find the text
 		std::string text = s.substr(firstPos+1, secondPos-firstPos-1); //split string using the indexes to find the text
 		
+		// if the tags are equal eg:  <T1></T1> then go to this part of the branch
 		if (tag == tag2)
 		{
-			std::string restOfText = s.substr(secondPos+tag.length()+4, s.length()-3 );
-			std::cout << "Matched! " << std::endl;
-			s = restOfText;
-			std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
-
+			std::string restOfText = s.substr(secondPos+tag.length()+4, s.length()-3 ); //move to the next part of the string
+			s = restOfText; // update the string
+			
 			// add the TAGstruct 
 			//if the tag exists, increment the tag and add the text
 			if (ORRKAU001::checkIfTagExists(tag))
@@ -64,25 +39,23 @@ void ORRKAU001::createTagVector(std::string ss)
 			}
 			else
 			{
+				//add the new Tag data to the Tagstruct vector
 				tagstruct.tagName = tag;
 				tagstruct.numberOfPairs = 1;
 				tagstruct.text = text;
 				TAGS.push_back(tagstruct);
 			}
-			
-
-			// check if it already exists
 		}
+		//handles the out of index boundries
 		else if (s.length() <= tag.length()+4)
 		{
 			break;
 		}
+		//if the tags don't match - used for nested tags
 		else
 		{
-			std::string restOfText = s.substr(secondPos+1, s.length()-secondPos-1 );
-			std::cout << "No match:    "<< restOfText << std::endl;
-			s = restOfText;
-			std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
+			std::string restOfText = s.substr(secondPos+1, s.length()-secondPos-1 );//move to the next part of the string
+			s = restOfText; // update the string
 			
 			if (ORRKAU001::checkIfTagExists(tag2))
 			{
@@ -98,6 +71,7 @@ void ORRKAU001::createTagVector(std::string ss)
 			}
 			else
 			{
+				//add the new Tag data to the Tagstruct vector
 				tagstruct.tagName = tag;
 				tagstruct.numberOfPairs = 1;
 				tagstruct.text = text;
@@ -110,7 +84,6 @@ void ORRKAU001::createTagVector(std::string ss)
 }
 
 // checks if the tag exists within the vector of Tagstructs
-
 bool ORRKAU001::checkIfTagExists(std::string tagname)
 {
 	for (auto & element : TAGS) // loop through the vector to check
@@ -121,20 +94,6 @@ bool ORRKAU001::checkIfTagExists(std::string tagname)
 		}
 	}
 	return false; 
-}
-
-//this is a tester function to check if the vector of TagStructs is populating
-void ORRKAU001::printOutVector()
-{
-	std::cout << "starting to read vector" << std::endl;
-		
-	for (auto & element : TAGS)
-	{
-		std::cout << "tag: " << element.tagName << std::endl;
-		std::cout << "text: " << element.text << std::endl;
-		std::cout << "no. : "  << element.numberOfPairs << std::endl;
-	}
-
 }
 
 // handles the 'r' input from the user
@@ -215,6 +174,10 @@ void ORRKAU001::clear(void)
 	system("clear"); 
 } 
 
+/*
+* contains tester methods only
+*/
+
 //method to create a vector with TagStuct type objects
 void ORRKAU001::tester(std::string s)
 {
@@ -292,4 +255,46 @@ void ORRKAU001::tester(std::string s)
 		}
 	}
 }
+
+//a method to extract the file contents and return a vector with each line
+//this was initially a tester method, no real functionality in the whole program
+std::vector<std::string> ORRKAU001::extractFileContents(std::string filename)
+{
+	std::cout << filename << std::endl; //only a print to screen test if method works, no functionality
+	
+	std::vector<std::string> test_vector; //vector to store each line of the file
+	
+	std::ifstream in(filename); // use the file for imports
+	
+	//if file does not exist do not open the file
+	if(!in){std::cout << "Couldn't open file" << filename << std::endl; }
+	
+	//adding the items in the file into the vector
+	std::string line; 
+	while(std::getline(in, line))
+    {
+		test_vector.push_back(line);
+	}
+
+	std::cout << "Done." << std::endl;
+	in.close();
+
+	return test_vector;
+
+}
+
+//this is a tester function to check if the vector of TagStructs is populating
+void ORRKAU001::printOutVector()
+{
+	std::cout << "starting to read vector" << std::endl;
+		
+	for (auto & element : TAGS)
+	{
+		std::cout << "tag: " << element.tagName << std::endl;
+		std::cout << "text: " << element.text << std::endl;
+		std::cout << "no. : "  << element.numberOfPairs << std::endl;
+	}
+
+}
+
 	

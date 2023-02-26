@@ -1,22 +1,11 @@
-
 /*
-*
 * Author: Kauthar Orrie, ORRKAU001
 * 21/02/23
 * main file for Assigment 1
 */
 
-#include <iostream>
-#include <ctype.h>
-#include <stdio.h>
-#include <fstream>
-#include <iostream>
-#include <sstream>
-#include "string.h"
-#include <vector>
 #include "TagEnum.h"
-#include <cstring>  
-
+ 
 int main (int argc, char** argv)
 {
 
@@ -96,83 +85,6 @@ int main (int argc, char** argv)
 		}
 		if (input_vector.at(0) == "q" ) break;
 	}
-
-	std::string X = "buenos dias mi amigo", value;
-	std::istringstream iss(X);
-	while (!iss.eof())
-	{
-	iss >> value;
-	std::cout << "value =" << value << std::endl;
-	}
-
-
-		////////////////////////////////////////////////////////////////////////////////////
-	// std::string filename = "simple_nested.txt";
-	// std::string f; 
-
-	// std::ifstream in(filename); // use the file for imports
-	
-	// //if file does not exist do not open the file
-	// if(!in){std::cout << "Couldn't open file" << filename << std::endl; }
-	
-	// //adding the items in the file into the vector
-	// std::string line; 
-	// while(std::getline(in, line))
-    // {
-	// 	f+=line;
-	// }
-	// f+=" ";
-
-	// std::cout << "Done. \n" << std::endl;
-	// in.close();
-
-
-	// std::string ss = "<title>Long Example</title><h1>Heading</h1><li>Item 1</li><li>Item 2</li><li>Item 3</li> ";
-	// std::string s = f.substr(1, f.length()-1); 
-	// ORRKAU001::tester(s);
-	// ORRKAU001::printAllTags();
-	// ORRKAU001::dumpTagsToFile();
-
-	// //std::cout << s << std::endl;
-	// while (s.length() != 0){
-	// 	int firstPos = s.find(">"); // get the index of the Tag
-	// 	int secondPos = s.find("<"); // get the index of where the tag ends
-
-	// 	std::string tag = s.substr(0, firstPos); // split string to find the TAG
-	// 	std::string tag2 = s.substr(secondPos+2, tag.length()); //split string using the indexes to find the text
-	// 	std::string text = s.substr(firstPos+1, secondPos-firstPos-1); //split string using the indexes to find the text
-		
-	// 	if (tag == tag2)
-	// 	{
-	// 		std::string restOfText = s.substr(secondPos+tag.length()+4, s.length()-3 );
-	// 		std::cout << "Matched! " << std::endl;
-	// 		s = restOfText;
-	// 		std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
-
-	// 		// add the TAGstruct 
-			
-
-	// 		// check if it already exists
-	// 	}
-	// 	else if (s.length() <= tag.length()+4)
-	// 	{
-	// 		break;
-	// 	}
-	// 	else
-	// 	{
-	// 		std::string restOfText = s.substr(secondPos+1, s.length()-secondPos-1 );
-	// 		std::cout << "No match:    "<< restOfText << std::endl;
-	// 		s = restOfText;
-	// 		std::cout <<"Tag: " << tag << " Text: " << text << std::endl;
-
-			 
-
-	// 		// break;
-
-
-
-	// 	}
-	// }
 		 
 	return 0;
 }
